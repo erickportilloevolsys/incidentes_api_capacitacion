@@ -35,6 +35,14 @@ namespace LogicaNegocio.Validators.Incidente
                 return resultado;
             }
 
+            if (request.IdTipoIncidente == 0)
+            {
+                resultado.EsValido = false;
+                resultado.PropiedadError = nameof(request.IdTipoIncidente);
+                resultado.MensajeError = "El tipo de incidente es obligatorio.";
+                return resultado;
+            }
+
             if (string.IsNullOrEmpty(request.Telefono)
                 || !System.Text.RegularExpressions.Regex.IsMatch(request.Telefono, @"^9\d{8}$"))
             {

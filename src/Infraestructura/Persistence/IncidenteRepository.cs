@@ -1,5 +1,6 @@
 ﻿using LogicaNegocio.Entidades;
 using LogicaNegocio.Interfaces.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infraestructura.Persistence
 {
@@ -22,7 +23,12 @@ namespace Infraestructura.Persistence
 
         public async Task<Incidente> ObtenerPorId(int id)
         {
-            return await _appDbContext.Incidentes.FindAsync(id);
+            return await _appDbContext.Incidentes
+                .Include(i => i.TipoIncidente)
+                .Include(i => i.Impacto)
+                .Include(i => i.Prioridad)
+                .Include(i => i.EstadoIncidente)
+                .FirstOrDefaultAsync(i => i.Id == id);
         }
     }
 }

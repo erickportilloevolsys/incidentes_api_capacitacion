@@ -20,6 +20,31 @@ namespace Infraestructura
             base.OnModelCreating(modelBuilder);
             // Configuraciones adicionales si es necesario
 
+            //Agrega las configuraciones para las propiedades de navegación TipoIncidente, Impacto, Prioridad y EstadoIncidente en la entidad Incidente
+            modelBuilder.Entity<Incidente>()
+                .HasOne(i => i.TipoIncidente)
+                .WithMany()
+                .HasForeignKey(i => i.IdTipoIncidente)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Incidente>()
+                .HasOne(i => i.Impacto)
+                .WithMany()
+                .HasForeignKey(i => i.IdImpacto)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Incidente>()
+                .HasOne(i => i.Prioridad)
+                .WithMany()
+                .HasForeignKey(i => i.IdPrioridad)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Incidente>()
+                .HasOne(i => i.EstadoIncidente)
+                .WithMany()
+                .HasForeignKey(i => i.IdEstado)
+                .OnDelete(DeleteBehavior.NoAction);
+
             modelBuilder.Entity<TipoIncidente>().HasData(
                 new TipoIncidente { Id = 1, Descripcion = "ERROR DE SISTEMA" },
                 new TipoIncidente { Id = 2, Descripcion = "ERROR DE USUARIO" },

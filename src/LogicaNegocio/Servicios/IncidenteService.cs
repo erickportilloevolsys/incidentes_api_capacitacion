@@ -37,6 +37,7 @@ namespace LogicaNegocio.Servicios
                 IdEstado = (int)EstadoIncidenteEnum.Solicitado,
                 IdImpacto = request.IdImpacto,
                 IdPrioridad = request.IdPrioridad,
+                IdTipoIncidente = request.IdTipoIncidente,
                 NombreCompleto = request.NombreCompleto,
                 Telefono = request.Telefono,
                 Email = request.Email
@@ -64,8 +65,13 @@ namespace LogicaNegocio.Servicios
                 Descripcion = incidente.Descripcion,
                 FechaRegistro = incidente.FechaRegistro,
                 IdEstado = incidente.IdEstado,
+                Estado = incidente.EstadoIncidente.Descripcion,
                 IdImpacto = incidente.IdImpacto,
+                Impacto = incidente.Impacto.Descripcion,
                 IdPrioridad = incidente.IdPrioridad,
+                Prioridad = incidente.Prioridad.Descripcion,
+                IdTipoIncidente = incidente.IdTipoIncidente,
+                TipoIncidente = incidente.TipoIncidente.Descripcion,
                 NombreCompleto = incidente.NombreCompleto,
                 Telefono = incidente.Telefono,
                 Email = incidente.Email
