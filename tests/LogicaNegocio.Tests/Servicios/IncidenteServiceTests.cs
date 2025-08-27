@@ -24,6 +24,7 @@ namespace LogicaNegocio.Tests.Servicios
                 Descripcion = "desc",
                 IdImpacto = 1,
                 IdPrioridad = 1,
+                IdTipoIncidente = 1,
                 NombreCompleto = "Nombre",
                 Telefono = "999956936",
                 Email = "test@test.com"
@@ -45,10 +46,15 @@ namespace LogicaNegocio.Tests.Servicios
                 Descripcion = "desc",
                 FechaRegistro = DateTime.Now,
                 IdEstado = (int)EstadoIncidenteEnum.Solicitado,
+                EstadoIncidente = new EstadoIncidente { Id = 1, Descripcion = ""},
                 IdImpacto = 1,
+                Impacto = new Impacto { Id = 1, Descripcion = ""},
                 IdPrioridad = 1,
+                Prioridad = new Prioridad { Id = 1, Descripcion = "" },
+                IdTipoIncidente =1,
+                TipoIncidente = new TipoIncidente { Id = 1, Descripcion = "" },
                 NombreCompleto = "Nombre",
-                Telefono = "123",
+                Telefono = "999956936",
                 Email = "test@test.com"
             });
             var service = new IncidenteService(mockRepo.Object);
