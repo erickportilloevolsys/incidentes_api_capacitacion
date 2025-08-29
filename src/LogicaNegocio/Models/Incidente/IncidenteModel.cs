@@ -1,0 +1,20 @@
+﻿namespace LogicaNegocio.Models.Incidente
+{
+    public class IncidenteModel
+    {
+        public int Id { get; set; }
+        public string Descripcion { get; set; } = string.Empty;
+        public DateTime FechaRegistro { get; set; }
+        public int IdEstado { get; set; }
+        public string Estado { get; set; }
+        public int IdImpacto { get; set; }
+        public string Impacto { get; set; }
+        public int IdPrioridad { get; set; }
+        public string Prioridad { get; set; }
+        public int IdTipoIncidente { get; set; }
+        public string TipoIncidente { get; set; }
+        public string NombreCompleto { get; set; } = string.Empty;
+        public string Telefono { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+    }
+}
